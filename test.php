@@ -166,7 +166,7 @@ else if ($data->task == 'deletemessage') {
 else if ($data->task == 'getsinglemessage') {
     $myArray = array();
     if (isset($_SESSION["currentuser"])) {
-        $query1 = "select * from messages where id =" . $data->id;
+        $query1 = "select * from messages where user_id= ".$data->userid." and id =" . $data->id;
         $result = $mysqli->query($query1);
         $row_cnt = $result->num_rows;
         if ($row_cnt > 0) {

@@ -22,6 +22,7 @@
  
   <script src="js/controllers/registration.js"></script>
   <script src="js/controllers/success.js"></script>
+  <script src="js/controllers/message.js"></script>
   <script src="js/factory/authenticate.js"></script>
 
 </head>

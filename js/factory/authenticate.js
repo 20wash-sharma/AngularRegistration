@@ -163,11 +163,11 @@ myApp.factory("Data", ['$http', '$q','$rootScope',
 
 
             },
-             'getSingleMessage': function (id) {
+             'getSingleMessage': function (id, userid) {
                     
                 var qOjbect = $q.defer();
                 
-                var userdata = { task: 'getsinglemessage', id:id};
+                var userdata = { task: 'getsinglemessage', id:id, userid:userid};
                 $http({
                     method: 'POST',
                     url: 'test.php',

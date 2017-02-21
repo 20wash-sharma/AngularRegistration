@@ -17,7 +17,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
                     controller: 'SuccessController',
                 }).when('/message/:id', {
                     templateUrl: 'views/messageview.html',
-                    controller: 'SuccessController'
+                    controller: 'MessageController'
                 }).
                 when('/success', {
                     templateUrl: 'views/success.html',
