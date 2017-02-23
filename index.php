@@ -7,9 +7,10 @@
   <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   
-
+<link rel="stylesheet" href="css/style.css"/>
+  
   <script src="js/lib/angular/angular.min.js"></script>
   <script src="js/lib/angular/angular-route.min.js"></script>
   <script src="js/lib/angular/angular-animate.min.js"></script>
@@ -27,19 +28,16 @@
 
 </head>
 <body>
-<header>
-  <nav class="cf" ng-include="'views/nav.html'"></nav>
-</header>
-<div class="page">
-    
-  <div class="userinfo" ng-hide="isnotloggedin" ng-controller="RegistrationController">
-      <span class="userinfo">Hi {{suser.name}}  </span>
-    
-  </div>
 
-  <main class="cf" ng-view>
+  <nav class="cf" ng-include="'views/nav.html'"></nav>
+
+<div class="container">
+    
+  
+
+  <div class="row" ng-view>
      
-  </main>
+  </div>
 </div>
     
     

@@ -1,9 +1,36 @@
-  <div class="branding"><a ng-href="#/">Assignment Five</a></div>
-  <ul>
-    <li><a ng-hide="authenticated" ng-href="#/login">Login</a></li>
+  
+ 
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Assignment Angular and Bootstrap</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+             <ul class="nav navbar-nav">
+             <li class="" ng-hide="isnotloggedin" ng-controller="RegistrationController"><a>Hi {{suser.name}}</a></li>
+     
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a ng-hide="authenticated" ng-href="#/login">Login</a></li>
     <li><a ng-hide="authenticated" ng-href="#/register">Register</a></li>
-    <li><a ng-hide="isnotloggedin" ng-controller="RegistrationController" ng-href="#/login" ng-click="logout()">Logout</a></li>
+     <li class="" ng-hide="isnotloggedin" ng-controller="RegistrationController">Hi {{suser.name}}</li>
+            
      <li><a ng-hide="isnotloggedin" ng-href="#/profile">Profile</a></li>
       <li><a ng-hide="isnotloggedin" ng-href="#/message">Messages</a></li>
-    
-  </ul>
+       <li><a ng-hide="isnotloggedin" ng-controller="RegistrationController" ng-href="#/login" ng-click="logout()">Logout</a></li>
+   
+       </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+ 

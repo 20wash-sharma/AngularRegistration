@@ -1,55 +1,65 @@
-<section class="card register">
-  <form name="myform"
-    ng-submit="register()"
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        
+    
+<form name="myregisterform" class="form-signin" ng-submit="register()"
     novalidate>
-
-    <div class="textintro">
-      <h1>Register</h1>
-      <p>To access site features</p>
-      <p class="error validationerror" ng-show="invalidmessage">{{ invalidmessage }}</p>
-    </div>
-
-    <fieldset>
-      <input type="text" name="name" placeholder="Name"
+        <h4 class="alert alert-info">Sign up to create your profile</h4>
+        
+           <p class="text-danger" ng-show="invalidmessage">{{invalidmessage}}</p>
+           <div class="form-group">
+           <label for="inputEmail" class="sr-only">Name</label>
+        <input class="form-control" type="text" name="name" placeholder="Name"
       ng-model="user.name" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.name.$invalid && myform.name.$touched">
+      <p class="text-danger"
+      ng-show="myregisterform.name.$invalid && myregisterform.name.$touched">
        Name required</p>
-
-      
-        <input type="text" name="username" placeholder="username"
+             </div>
+           <div class="form-group">
+             <label for="inputPassword" class="sr-only">Username</label>
+             <input class="form-control" type="text" name="username" placeholder="username"
       ng-model="user.username" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.username.$invalid && myform.username.$touched">
+      <p class="text-danger"
+      ng-show="myregisterform.username.$invalid && myregisterform.username.$touched">
       User name required</p>
-
-      <input type="email" name="email" placeholder="Email"
-      ng-model="user.email" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.email.$invalid && myform.email.$touched">
+        </div>
+           <div class="form-group">
+             <label for="inputPassword" class="sr-only">Email</label>
+             <input class="form-control" type="email" name="email" placeholder="Email" 
+                    ng-model="user.email" ng-required="true">
+      <p class="text-danger"
+      ng-show="myregisterform.email.$invalid && myregisterform.email.$touched">
       Must be a valid email</p>
-
-      <input type="password" name="password" placeholder="Password"
+        </div>
+           <div class="form-group">
+             <label for="inputPassword" class="sr-only">Password</label>
+              <input class="form-control" type="password" name="password" placeholder="Password"
       ng-model="user.password" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.password.$invalid && myform.email.$touched">
+      <p class="text-danger"
+      ng-show="myregisterform.password.$invalid && myregisterform.password.$touched">
       Password is required</p>
-      
- <input type="text" name="location" placeholder="Location"
+        </div>
+           <div class="form-group">
+             <label for="inputPassword" class="sr-only">Location</label>
+            <input class="form-control" type="text" name="location" placeholder="Location"
       ng-model="user.location" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.location.$invalid && myform.location.$touched">
+      <p class="text-danger"
+      ng-show="myregisterform.location.$invalid && myregisterform.location.$touched">
       Location is required</p>
-      <input type="text" name="phone" placeholder="Phone"
-      ng-model="user.phone" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.phone.$invalid && myform.phone.$touched">
+        </div>
+           <div class="form-group">
+             <label for="inputPassword" class="sr-only">Phone</label>
+             <input class="form-control" type="text" name="phone" placeholder="Phone"
+      ng-model="user.contact_no" ng-required="true">
+      <p class="text-danger"
+      ng-show="myregisterform.phone.$invalid && myregisterform.phone.$touched">
       Phone is required</p>
+        </div>
+           <button class="btn btn-lg btn-primary btn-block" type="submit" 
+    ng-disabled="myregisterform.$invalid">Register</button>
+   
+        
+      </form>
 
-    </fieldset>
-
-    <button type="submit" class="btn"
-    ng-disabled="myform.$invalid">Register</button>
-    <p>or <a ng-href="#/login">login</a></p>
-  </form>
-</section>
+    </div>
+</div>

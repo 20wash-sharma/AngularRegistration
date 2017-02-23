@@ -5,10 +5,10 @@
  */
 
 
-myApp.controller('MessageController', ['$scope','$rootScope',  'Data', '$routeParams',
-    function ($scope,$rootScope,  Data  ,$routeParams) {
-        console.log($routeParams.id);
-        if($routeParams.id!='undefined')
+myApp.controller('MessageController', ['$scope','$rootScope',  'Data', '$routeParams','$location',
+    function ($scope,$rootScope,  Data  ,$routeParams,$location) {
+       // console.log($routeParams.id);
+        if($routeParams.id)
         {
             var user_id=$rootScope.suser.id;
             Data.getSingleMessage($routeParams.id,user_id).then(function (status) {
@@ -37,7 +37,10 @@ myApp.controller('MessageController', ['$scope','$rootScope',  'Data', '$routePa
                 //document.write(err);
                 $scope.invalidmessageformessage = err;
             });
-        }//
+        }else 
+        {
+             $location.path('/message');
+        }
         
      
     }]);

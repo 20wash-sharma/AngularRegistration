@@ -25,7 +25,7 @@ myApp.factory("Data", ['$http', '$q','$rootScope',
             'registerUser': function (user) {
 
                 var qOjbect = $q.defer();
-                var userdata = {name: user.name, email: user.email, password: user.password, username: user.username, location: user.location, phone: user.phone, task: 'register'};
+                var userdata = {name: user.name, email: user.email, password: user.password, username: user.username, location: user.location, contact_no: user.contact_no, task: 'register'};
                 $http({
                     method: 'POST',
                     url: 'test.php',

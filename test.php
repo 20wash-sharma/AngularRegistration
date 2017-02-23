@@ -35,7 +35,7 @@ else if ($data->task == 'register') {
     if ($row_cnt[0] >= 1) {
         echo 'username or email already exists';
     } else {
-        $sql = "insert into users (name, email,username,password, location,contact_no) values ('" . $data->name . "',  '" . $data->email . "', '" . $data->username . "', '" . $data->password . "', '" . $data->location . "',  '" . $data->phone . "')";
+        $sql = "insert into users (name, email,username,password, location,contact_no) values ('" . $data->name . "',  '" . $data->email . "', '" . $data->username . "', '" . $data->password . "', '" . $data->location . "',  '" . $data->contact_no . "')";
         if ($mysqli->query($sql) === TRUE) {
             echo 'success';
             $_SESSION["currentuser"] = $data->email;
