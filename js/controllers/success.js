@@ -27,7 +27,7 @@ myApp.controller('SuccessController', ['$scope', '$http', '$location', 'Data', '
                 if (status == 'success')
                 {
                     $location.path('/message');
-                }  else
+                   }  else
                 {
                     $scope.invalidmessage = 'Error';
                 }
@@ -44,7 +44,9 @@ myApp.controller('SuccessController', ['$scope', '$http', '$location', 'Data', '
             Data.markImportantOrUnimportant(id,flag).then(function (status) {
                 if (status == 'success')
                 {
-                    $location.path('/message');
+                    
+                  $location.path('/message');
+                    
                 }  else
                 {
                     $scope.invalidmessage = 'Error';

@@ -8,7 +8,6 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="css/style.css">
   
 
   <script src="js/lib/angular/angular.min.js"></script>
@@ -24,6 +23,7 @@
   <script src="js/controllers/success.js"></script>
   <script src="js/controllers/message.js"></script>
   <script src="js/factory/authenticate.js"></script>
+  <script src="js/customdirective/messagedirective.js"></script>
 
 </head>
 <body>
