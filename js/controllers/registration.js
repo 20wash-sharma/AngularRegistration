@@ -1,6 +1,6 @@
 myApp.controller('RegistrationController',
-        ['$scope', '$http', '$location', 'Data', '$rootScope',
-            function ($scope, $http, $location, Data, $rootScope) {
+        ['$scope', '$http', '$location', 'Data', '$rootScope','toaster',
+            function ($scope, $http, $location, Data, $rootScope ,toaster) {
 
                 $scope.login = function () {
                     Data.validataCredential($scope.user).then(function (status) {
@@ -10,9 +10,12 @@ myApp.controller('RegistrationController',
                             $rootScope.currentUser = $scope.user;
                             
                             $location.path('/success');
+                            toaster.pop('success', "", 'logged in successfully', 3000, 'trustedHtml');
                         } else {
                             $rootScope.currentUser = '';
                             $scope.invalidmessage = 'validation failed';
+                              toaster.pop('error', "", 'Incorrect Credentials', 3000, 'trustedHtml');
+                 
                         }
 
 
@@ -31,9 +34,13 @@ myApp.controller('RegistrationController',
                         {
                            
                             $location.path('/success');
+                             toaster.pop('success', "", 'Successfully registered', 3000, 'trustedHtml');
+                 
                         } else {
                             $rootScope.currentUser = '';
                             $scope.invalidmessage = status;
+                             toaster.pop('warning', "", status, 3000, 'trustedHtml');
+                 
                         }
 
 
@@ -51,6 +58,8 @@ myApp.controller('RegistrationController',
                         {
                            
                             $location.path('/login');
+                              toaster.pop('info', "", 'Logged out successfully', 3000, 'trustedHtml');
+                 
                         } else {
                             $scope.invalidmessage = 'log out failed';
                         }

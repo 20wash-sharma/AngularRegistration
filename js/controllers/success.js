@@ -1,13 +1,17 @@
-myApp.controller('SuccessController', ['$scope', '$http', '$location', 'Data', '$rootScope','$routeParams',
-    function ($scope, $http, $location, Data, $rootScope,$routeParams) {
+myApp.controller('SuccessController', 
+['$scope', '$http', '$location', 'Data', '$rootScope','$routeParams','toaster',
+    function ($scope, $http, $location, Data, $rootScope,$routeParams,toaster) {
         $scope.message = "Welcome!!!";
         $scope.updateuserinfo = function () {
             Data.updateUserInfo().then(function (status) {
                 if (status == 'success')
                 {
-                    $location.path('/success');
+                    $location.path('/profile');
+                     toaster.pop('info', "", 'successfully updated', 3000, 'trustedHtml');
                 } else if (status == 'usernameexists') {
                     $scope.invalidmessage = 'User name already exists';
+                     toaster.pop('warning', "", 'username exists', 3000, 'trustedHtml');
+                 
                 } else
                 {
                     $scope.invalidmessage = 'Update failed';
@@ -26,7 +30,11 @@ myApp.controller('SuccessController', ['$scope', '$http', '$location', 'Data', '
             Data.deleteMessage(id).then(function (status) {
                 if (status == 'success')
                 {
+                    
                     $location.path('/message');
+                     toaster.pop('info', "", 'successfully deleted', 3000, 'trustedHtml');
+                    
+                 
                    }  else
                 {
                     $scope.invalidmessage = 'Error';
@@ -46,6 +54,8 @@ myApp.controller('SuccessController', ['$scope', '$http', '$location', 'Data', '
                 {
                     
                   $location.path('/message');
+                   toaster.pop('info', "", 'successfully marked', 3000, 'trustedHtml');
+                   
                     
                 }  else
                 {
