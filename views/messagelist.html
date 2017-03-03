@@ -11,19 +11,19 @@
         <tbody >
            
         
-            <tr ng-repeat="message in messages">
+            <tr ng-repeat="message in messages" id="row_{{message.id}}">
                
               <td>{{message.message_title}}</td>
               <td>{{message.message_body}}</td>
               <td>{{message.Sender}}</td>
-              <td ng-init="message.important==1?flagmarkhider=1:flagmarkhider=0;message.important==0?flagunmarkhider=1:flagunmarkhider=0">{{message.important == 1 ? "important" : "Unimportant"}}</td>
+              <td>{{message.importantlabel}}</td>
            
-              <td ng-init="messageid=message.id;message.important==1?flipflag=0:flipflag=1;"><a ng-href="#" ng-click="markImportantOrUnimportant(messageid,flipflag)" ng-controller="SuccessController">
-                      <i  ng-hide="(flagmarkhider)" class="fa fa-check" aria-hidden="true"> Mark Imp</i>
-                      <i  ng-hide="(flagunmarkhider)" class="fa fa-times" aria-hidden="true"> Mark UnImp</i>
+              <td ng-init="messageid=message.id; markimporunimp=message.id+'-'+message.flipflag" ><a ng-href="#/message" ng-click="markImportantOrUnimportant(markimporunimp)" >
+                      <i  ng-hide="{{message.flagmarkhider}}" class="fa fa-check" aria-hidden="true"> Mark Imp</i>
+                      <i  ng-hide="{{message.flagunmarkhider}}" class="fa fa-times" aria-hidden="true"> Mark UnImp</i>
                     
                   </a>
-                  <a ng-href="#" ng-click="deleteMessage(messageid)" ng-controller="SuccessController"><i class="fa fa-trash-o"> Delete</i> </a>
+                  <a ng-href="#message" ng-click="deleteMessage(messageid)" ><i class="fa fa-trash-o"> Delete</i> </a>
                   <a ng-href="#/message/{{messageid}}"  ng-controller="SuccessController"><i class="fa fa-eye"> View</i> </a>
                   
               </td>

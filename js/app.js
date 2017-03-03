@@ -50,6 +50,29 @@ myApp.config(['$routeProvider', function ($routeProvider) {
                      Data.getMessage().then(function (results) {
                          $rootScope.messages=results;
                          
+                          
+                         for(message in results)
+                         {
+                            
+                             if(results[message].important==1)
+                             {
+                                 $rootScope.messages[message]['importantlabel']='important';
+                                  $rootScope.messages[message]['flipflag']=0;
+                                  $rootScope.messages[message]['flagmarkhider']=1;
+                                   $rootScope.messages[message]['flagunmarkhider']=0;
+                             }
+                             else 
+                             {
+                                $rootScope.messages[message]['importantlabel']='unimportant'; 
+                                $rootScope.messages[message]['flipflag']=1;
+                                $rootScope.messages[message]['flagmarkhider']=0;
+                                   $rootScope.messages[message]['flagunmarkhider']=1;
+                                   
+                             }
+                             
+                         }
+                        
+                         
                      });
                 }
             }//session exists
