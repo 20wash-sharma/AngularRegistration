@@ -163,11 +163,33 @@ myApp.factory("Data", ['$http', '$q','$rootScope',
 
 
             },
-             'getSingleMessage': function (id, userid) {
+             'getSingleMessage': function (msgid) {
                     
                 var qOjbect = $q.defer();
                 
-                var userdata = { task: 'getsinglemessage', id:id, userid:userid};
+                var userdata = { task: 'getsinglemessage', id:msgid};
+                $http({
+                    method: 'POST',
+                    url: 'test.php',
+                    data: userdata,
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                }).then(function (success) {
+                    //console.log(success.data[0].Sender);
+                    qOjbect.resolve(success.data);
+                   
+
+                }, function (err) {
+                    console.log(err);
+                });
+                return qOjbect.promise;
+
+
+            },
+             'replyToUser': function (receiver,subject,body,sender) {
+                    
+                var qOjbect = $q.defer();
+                
+                var userdata = { task: 'replyToUser', receiver:receiver,subject:subject,body:body,sender:sender};
                 $http({
                     method: 'POST',
                     url: 'test.php',

@@ -5,28 +5,12 @@
         
     
   <h1>View Message</h1>
-
+ 
     
 
     
-        <div class="form-group">
-                                <label for="formGroupExampleInput">Title</label>
-                                <input ng-model="m_title" type="text" readonly="" class="form-control" name="title">
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput2">Body</label>
-                                <textarea   ng-model="m_body" type="text" readonly="" class="form-control" name="body"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput2">Sender</label>
-                                <input ng-model="m_sender" type="text" readonly="" class="form-control" name="sender" >
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput2">Importance</label>
-                                <input ng-model="m_importance" type="text" readonly="" class="form-control" name="importance" >
-                            </div>
-    <button id="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Reply</button>
-                                  
+       
+                                 
    
 
    
@@ -34,36 +18,11 @@
     </div>
     
     
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Reply</h4>
-                    </div>
-                    <form name="myForm" action="" onsubmit="return addOrUpdateHandler(event)" method="post">
-                        <div class="modal-body">
+     
 
 
-                            <div class="form-group">
-                                <label for="formGroupExampleInput">subject</label>
-                                <input type="text" class="form-control" name="fsubject" placeholder="Subject">
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput2">Message</label>
-                                <textarea type="text" class="form-control" name="fmessage" placeholder="Message"></textarea>
-                            </div>
-                           
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <input id="submitbuttonid" type="submit" class="btn btn-primary" value="Submit" data-addedit="add">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
    
   
 </div>

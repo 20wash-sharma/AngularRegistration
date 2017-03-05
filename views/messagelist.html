@@ -15,7 +15,7 @@
                
               <td>{{message.message_title}}</td>
               <td>{{message.message_body}}</td>
-              <td>{{message.Sender}}</td>
+              <td>{{message.email}}</td>
               <td>{{message.importantlabel}}</td>
            
               <td ng-init="messageid=message.id; markimporunimp=message.id+'-'+message.flipflag" ><a ng-href="#/message" ng-click="markImportantOrUnimportant(markimporunimp)" >
@@ -23,12 +23,94 @@
                       <i  ng-hide="{{message.flagunmarkhider}}" class="fa fa-times" aria-hidden="true"> Mark UnImp</i>
                     
                   </a>
-                  <a ng-href="#message" ng-click="deleteMessage(messageid)" ><i class="fa fa-trash-o"> Delete</i> </a>
-                  <a ng-href="#/message/{{messageid}}"  ng-controller="SuccessController"><i class="fa fa-eye"> View</i> </a>
+                  <a ng-href="#/message" ng-click="deleteMessage(messageid)" ><i class="fa fa-trash-o"> Delete</i> </a>
+                  <a ng-href="#/message" data-toggle="modal" data-target="#viewMessageModel" ng-click="viewMessage(messageid)"><i class="fa fa-eye"> View</i> </a>
                   
               </td>
             </tr>
             
             </tbody>
      </table>
-      
+      <div class="modal fade" id="viewMessageModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">View Message</h4>
+                    </div>
+                   
+                        <div class="modal-body">
+
+
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Title</label>
+                                <input ng-model="m_title" type="text" readonly="" class="form-control" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Body</label>
+                                <textarea   ng-model="m_body" type="text" readonly="" class="form-control" name="body"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Sender</label>
+                                <input ng-model="m_sender" type="text" readonly="" class="form-control" name="sender" >
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Importance</label>
+                                <input ng-model="m_importance" type="text" readonly="" class="form-control" name="importance" >
+                            </div>
+                           
+         
+                           
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           <button id="replybuttonid" data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Reply</button>
+     
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Reply</h4>
+                    </div>
+                    <form name="myreplyform" action=""  novalidate method="post" >
+                        <div class="modal-body">
+
+
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">subject</label>
+                                <input type="text" class="form-control" name="fsubject" ng-model="replysubject" placeholder="Subject" ng-required="true">
+                           <p class="text-danger"
+      ng-show="myreplyform.replysubject.$error.required">
+      subject is required</p> 
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Message</label>
+                                <textarea type="text" class="form-control" name="fmessage" ng-model="replymessage" placeholder="Message" ng-required="true"></textarea>
+                            <p class="text-danger"
+      ng-show="myreplyform.replymessage.$error.required">
+      Message is required</p> 
+                               
+                            </div>
+                           
+         
+                           
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input id="submitbuttonid" data-dismiss="modal" ng-disabled="myreplyform.$invalid" ng-click="replyToUser()" class="btn btn-primary" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

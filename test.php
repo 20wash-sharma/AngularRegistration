@@ -110,7 +110,7 @@ else if ($data->task == 'updateuser') {
 else if ($data->task == 'getmessage') {
     $myArray = array();
     if (isset($_SESSION["currentuser"])) {
-        $query1 = "select * from messages where user_id =" . $data->id;
+        $query1 = "select m.*,u.email from messages m join users u on u.id=m.sender_id where m.receiver_id =" . $data->id."  ";
         $result = $mysqli->query($query1);
         $row_cnt = $result->num_rows;
         if ($row_cnt > 0) {
@@ -166,7 +166,7 @@ else if ($data->task == 'deletemessage') {
 else if ($data->task == 'getsinglemessage') {
     $myArray = array();
     if (isset($_SESSION["currentuser"])) {
-        $query1 = "select * from messages where user_id= ".$data->userid." and id =" . $data->id;
+        $query1 = "select m.*, u.email from messages m join users u on u.id = m.sender_id where m.id =" . $data->id;
         $result = $mysqli->query($query1);
         $row_cnt = $result->num_rows;
         if ($row_cnt > 0) {
@@ -183,7 +183,27 @@ else if ($data->task == 'getsinglemessage') {
   }
 
 }//if get session data is requested
+else if ($data->task == 'replyToUser') {
+    $myArray = array();
+    if (isset($_SESSION["currentuser"])) {
+        $query1 = "select id from users where email ='" . $data->receiver . "'";
+    $result = $mysqli->query($query1);
+    $row_cnt = $result->fetch_row();
+   
+        $sql = "insert into messages (message_title, message_body,sender_id,receiver_id) values ('" . $data->subject . "',  '" . $data->body . "', '" . $data->sender . "', '" . $row_cnt[0] . "')";
+        if ($mysqli->query($sql) === TRUE) {
+            echo 'success';
+           
+        } else {
+            echo "Error: " . $sql . "<br>" . $mysqli->error;
+        }
+    }//if the session is set
+  else 
+  {
+      echo 'nosession';
+  }
 
+}//if get session data is requested
 
 //$result->close();
 $mysqli->close();

@@ -39,8 +39,10 @@
  
 
   <div class="row" ng-view>
+      
      
   </div>
+    
 </div>
     <toaster-container toaster-options="{'time-out': 3000,'position-class': 'toast-top-right','close-button':true}"></toaster-container>
  
